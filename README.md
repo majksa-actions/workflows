@@ -74,7 +74,7 @@ jobs:
 Example usage:
 
 ```yml
-name: "Lint PR"
+name: "Deploy"
 
 on:
   push:
