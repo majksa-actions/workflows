@@ -68,3 +68,23 @@ jobs:
   lint-pr:
     uses: majksa-actions/workflows/.github/workflows/lint-pr.yml@v1
 ```
+
+## Deploy to portainer
+
+Example usage:
+
+```yml
+name: "Lint PR"
+
+on:
+  push:
+    branches:
+      - "env/**"
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    uses: majksa-actions/workflows/.github/workflows/portainer-deploy.yml@v1
+```
