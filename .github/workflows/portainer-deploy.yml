@@ -1,0 +1,32 @@
+name: Deploy
+
+on:
+  workflow_call:
+    secrets:
+      PORTAINER_API_KEY:
+        description: "API key for Portainer"
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Extract environment name
+        shell: bash
+        run: echo "env=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/env/}}" >> $GITHUB_OUTPUT
+        id: extract_env
+
+      - name: Deploy stack to Portainer
+        uses: carlrygart/portainer-stack-deploy@v1
+        with:
+          portainer-host: https://portainer.majksa.com
+          username: gitops
+          password: ${{ secrets.PORTAINER_API_KEY }}
+          stack-name: ${{ github.event.repository.name }}-${{ steps.extract_env.outputs.env }}
+          stack-definition: docker-compose.yml
