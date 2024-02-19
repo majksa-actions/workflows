@@ -7,6 +7,10 @@ on:
         required: true
         description: "what type of release is this, one of (ruby, python, node, terraform-module)"
         type: string
+      manifest-file:
+        required: false
+        description: "Path to the release-please versions manifest. Defaults to .release-please-manifest.json"
+        type: string
     secrets:
       RELEASE_PLEASE_TOKEN:
         required: true
@@ -24,6 +28,7 @@ jobs:
         with:
           token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
           release-type: ${{ inputs.release-type }}
+          manifest-file: ${{ inputs.manifest-file }}
       - uses: actions/checkout@v4
       - name: tag major and minor versions
         if: ${{ steps.release.outputs.release_created }}
