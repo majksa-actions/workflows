@@ -45,5 +45,26 @@ permissions:
 jobs:
   build-and-push-image:
     uses: majksa-actions/workflows/.github/workflows/docker-build-and-push.yml@v1
-    secrets: inherit
+```
+
+## Lint PR
+
+Example usage:
+
+```yml
+name: "Lint PR"
+
+on:
+  pull_request_target:
+    types:
+      - opened
+      - edited
+      - synchronize
+
+permissions:
+  pull-requests: read
+
+jobs:
+  lint-pr:
+    uses: majksa-actions/workflows/.github/workflows/lint-pr.yml@v1
 ```
