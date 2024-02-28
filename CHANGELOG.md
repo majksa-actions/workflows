@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.1](https://github.com/majksa-actions/workflows/compare/v1.1.0...v1.1.1) (2024-02-28)
+
+
+### Bug Fixes
+
+* features input should be array with one empty string, not empty array ([50338d0](https://github.com/majksa-actions/workflows/commit/50338d0c33864b03647a5ebf7010cbdff6ad4492))
+* specify secrets manually ([2afc9e9](https://github.com/majksa-actions/workflows/commit/2afc9e98dd253b0d668fcf3d4bca5339c4e74f09))
+
 ## [1.1.0](https://github.com/majksa-actions/workflows/compare/v1.0.0...v1.1.0) (2024-02-28)
 
 
