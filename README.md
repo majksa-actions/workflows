@@ -2,7 +2,18 @@
 
 Stores reusable workflows that can be used from other actions.
 
-## Release please
+- [General](#general)
+  - [Release please](#release-please)
+  - [Docker build and push](#docker-build-and-push)
+  - [Lint PR](#lint-pr)
+  - [Deploy to portainer](#deploy-to-portainer)
+- [Rust](#rust)
+  - [Testing](#testing)
+  - [Publish to crates.io](#publish-to-cratesio)
+
+## General
+
+### Release please
 
 Example usage:
 
@@ -26,7 +37,7 @@ jobs:
       release-type: "simple"
 ```
 
-## Docker build and push
+### Docker build and push
 
 Example usage:
 
@@ -47,7 +58,7 @@ jobs:
     uses: majksa-actions/workflows/.github/workflows/docker-build-and-push.yml@v1
 ```
 
-## Lint PR
+### Lint PR
 
 Example usage:
 
@@ -69,7 +80,7 @@ jobs:
     uses: majksa-actions/workflows/.github/workflows/lint-pr.yml@v1
 ```
 
-## Deploy to portainer
+### Deploy to portainer
 
 Example usage:
 
@@ -87,4 +98,52 @@ permissions:
 jobs:
   deploy:
     uses: majksa-actions/workflows/.github/workflows/portainer-deploy.yml@v1
+```
+
+## Rust
+
+### Testing
+
+Needs CODECOV_TOKEN secret.
+
+Example usage:
+
+```yml
+name: Test
+
+on:
+  push:
+    branches:
+      - "**"
+  pull_request:
+    branches:
+      - "**"
+
+jobs:
+  rust:
+    uses: majksa-actions/workflows/.github/workflows/rust-test.yml@v1
+    secrets: inherit
+```
+
+### Publish to crates.io
+
+Needs CARGO_REGISTRY_TOKEN secret.
+
+Example usage:
+
+```yml
+name: Publish
+
+on:
+  push:
+    tags:
+      - "**"
+
+permissions:
+  contents: read
+
+jobs:
+  cargo:
+    uses: majksa-actions/workflows/.github/workflows/rust-publish.yml@v1
+    secrets: inherit
 ```
