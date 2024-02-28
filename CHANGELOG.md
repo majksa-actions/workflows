@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.1.0](https://github.com/majksa-actions/workflows/compare/v1.0.0...v1.1.0) (2024-02-28)
+
+
+### Features
+
+* add branch prefix input ([15bafc4](https://github.com/majksa-actions/workflows/commit/15bafc4872cde640639ba2be1206a1350d2facee))
+* add portainer deploy ([f323a6b](https://github.com/majksa-actions/workflows/commit/f323a6b5d764bb60df1d89e5304184054de6f72e))
+* linting prs validates single commits ([6045e2c](https://github.com/majksa-actions/workflows/commit/6045e2c22e2b428a64ced0ebe447c8462d6e83c8))
+* rust specific actions ([0acb3eb](https://github.com/majksa-actions/workflows/commit/0acb3ebeea48b2fa1651249e607d82706b30fd2b))
+
+
+### Bug Fixes
+
+* use better github ref env variable ([8b0cd90](https://github.com/majksa-actions/workflows/commit/8b0cd9051d4e625a14594d30eecb7fecf28f8a52))
+
 ## 1.0.0 (2024-02-19)
 
 
