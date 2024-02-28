@@ -11,7 +11,7 @@ on:
       features:
         description: "Rust features as JSON array -- see https://doc.rust-lang.org/cargo/reference/features.html#the-features-section"
         required: false
-        default: "[]"
+        default: '[""]'
         type: string
     secrets:
       CODECOV_TOKEN:
