@@ -32,7 +32,8 @@ permissions:
 jobs:
   release-please:
     uses: majksa-actions/workflows/.github/workflows/release-please.yml@v1
-    secrets: inherit
+    secrets:
+      RELEASE_PLEASE_TOKEN: ${{ secrets.RELEASE_PLEASE_TOKEN }}
     with:
       release-type: "simple"
 ```
@@ -104,8 +105,6 @@ jobs:
 
 ### Testing
 
-Needs CODECOV_TOKEN secret.
-
 Example usage:
 
 ```yml
@@ -122,12 +121,11 @@ on:
 jobs:
   rust:
     uses: majksa-actions/workflows/.github/workflows/rust-test.yml@v1
-    secrets: inherit
+    secrets:
+      CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 ```
 
 ### Publish to crates.io
-
-Needs CARGO_REGISTRY_TOKEN secret.
 
 Example usage:
 
@@ -145,5 +143,6 @@ permissions:
 jobs:
   cargo:
     uses: majksa-actions/workflows/.github/workflows/rust-publish.yml@v1
-    secrets: inherit
+    secrets:
+      CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
 ```
