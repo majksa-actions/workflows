@@ -10,6 +10,10 @@ Stores reusable workflows that can be used from other actions.
 - [Rust](#rust)
   - [Testing](#testing)
   - [Publish to crates.io](#publish-to-cratesio)
+- [TypeScript](#typescript)
+  - [Biome](#biome)
+    - [Check](#check)
+    - [Format](#format)
 
 ## General
 
@@ -112,8 +116,6 @@ name: Test
 
 on:
   push:
-    branches:
-      - "**"
   pull_request:
     branches:
       - "**"
@@ -145,4 +147,42 @@ jobs:
     uses: majksa-actions/workflows/.github/workflows/rust-publish.yml@v1
     secrets:
       CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
+```
+
+## TypeScript
+
+### Biome
+
+#### Check
+
+```yml
+name: Code Review
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  biome:
+    uses: majksa-actions/workflows/.github/workflows/biome-lint.yml@v1
+```
+
+#### Format
+
+```yml
+name: Code Review
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  biome:
+    uses: majksa-actions/workflows/.github/workflows/biome-format.yml@v1
 ```
