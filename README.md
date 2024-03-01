@@ -12,6 +12,7 @@ Stores reusable workflows that can be used from other actions.
   - [Publish to crates.io](#publish-to-cratesio)
 - [TypeScript](#typescript)
   - [Publish GitHub Action](#publish-github-action)
+  - [Vitest](#vitest)
   - [Biome](#biome)
     - [Check](#check)
     - [Format](#format)
@@ -167,6 +168,24 @@ permissions:
 jobs:
   build:
     uses: majksa-actions/workflows/.github/workflows/action-publish.yml@v1
+```
+
+### Vitest
+
+```yml
+name: Test
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  vitest:
+    uses: majksa-actions/workflows/.github/workflows/vitest.yml@v1
 ```
 
 ### Biome
