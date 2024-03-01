@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/majksa-actions/workflows/compare/v1.1.1...v1.2.0) (2024-03-01)
+
+
+### Features
+
+* add biome reusable workflows ([e1527d6](https://github.com/majksa-actions/workflows/commit/e1527d63b2982ce1d3b4386ed46bf1dfbb6d98f8))
+
 ## [1.1.1](https://github.com/majksa-actions/workflows/compare/v1.1.0...v1.1.1) (2024-02-28)
 
 
