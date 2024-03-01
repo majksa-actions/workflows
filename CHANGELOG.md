@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/majksa-actions/workflows/compare/v1.2.0...v1.3.0) (2024-03-01)
+
+
+### Features
+
+* add vitest ([cdbf38f](https://github.com/majksa-actions/workflows/commit/cdbf38f66722ac82c20ad1dc2fac86f0c5275484))
+
 ## [1.2.0](https://github.com/majksa-actions/workflows/compare/v1.1.1...v1.2.0) (2024-03-01)
 
 
