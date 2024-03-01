@@ -11,6 +11,7 @@ Stores reusable workflows that can be used from other actions.
   - [Testing](#testing)
   - [Publish to crates.io](#publish-to-cratesio)
 - [TypeScript](#typescript)
+  - [Publish GitHub Action](#publish-github-action)
   - [Biome](#biome)
     - [Check](#check)
     - [Format](#format)
@@ -150,6 +151,23 @@ jobs:
 ```
 
 ## TypeScript
+
+### Publish GitHub Action
+
+```yml
+name: Publish
+
+on:
+  release:
+    types: [published, edited]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    uses: majksa-actions/workflows/.github/workflows/action-publish.yml@v1
+```
 
 ### Biome
 
