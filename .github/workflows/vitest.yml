@@ -1,6 +1,10 @@
 name: Test
 on:
   workflow_call:
+    secrets:
+      CODECOV_TOKEN:
+        description: "Token for Codecov"
+        required: false
 
 jobs:
   vitest:
@@ -27,3 +31,12 @@ jobs:
       - name: Report Coverage
         if: always() && github.event_name == 'pull_request'
         uses: davelosert/vitest-coverage-report-action@v2
+
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v4
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+        if: ${{ env.CODECOV_TOKEN != '' }}
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          slug: ${{ github.repository }}
