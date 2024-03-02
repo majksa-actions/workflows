@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.0](https://github.com/majksa-actions/workflows/compare/v1.3.1...v1.4.0) (2024-03-02)
+
+
+### Features
+
+* create deployment manifest ([931d867](https://github.com/majksa-actions/workflows/commit/931d8679bed965b299a984ae5a1af6fe47da9c6a))
+
 ## [1.3.1](https://github.com/majksa-actions/workflows/compare/v1.3.0...v1.3.1) (2024-03-02)
 
 
