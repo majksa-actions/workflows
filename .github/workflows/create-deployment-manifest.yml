@@ -1,0 +1,59 @@
+name: Deploy
+
+on:
+  workflow_call:
+    inputs:
+      environment:
+        required: true
+        type: string
+      config-path:
+        required: false
+        type: string
+        default: config
+
+jobs:
+  config:
+    name: Config Server
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    timeout-minutes: 5
+    env:
+      MAIN_BRANCH: main
+      ENV_BRANCH: env
+    steps:
+      - name: Precheck
+        id: precheck
+        run: |
+          echo "base_ref_name=env/${{ inputs.environment }}" >> $GITHUB_OUTPUT
+
+      - name: Checkout ${{ env.MAIN_BRANCH }}
+        uses: actions/checkout@v4
+        with:
+          path: ${{ env.MAIN_BRANCH }}
+
+      - name: Checkout ${{ env.ENV_BRANCH }}
+        uses: actions/checkout@v4
+        with:
+          path: ${{ env.ENV_BRANCH }}
+          ref: ${{ steps.precheck.outputs.base_ref_name }}
+
+      - name: Config Server
+        uses: majksa-actions/deployment-config@v1
+        with:
+          source: ${{ env.MAIN_BRANCH }}/${{ inputs.config-path }}
+          target: ${{ env.ENV_BRANCH }}
+          environment: ${{ inputs.environment }}
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          title: ${{ format('Update {0} environment branch', steps.precheck.outputs.base_ref_name) }}
+          commit-message: "chore: update environment branch data"
+          body: "Updated manifest file"
+          base: ${{ steps.precheck.outputs.base_ref_name }}
+          branch: update/${{ steps.precheck.outputs.base_ref_name }}
+          path: ${{ env.ENV_BRANCH }}
+          delete-branch: true
+          labels: bot,dist

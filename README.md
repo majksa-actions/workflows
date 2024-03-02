@@ -6,6 +6,7 @@ Stores reusable workflows that can be used from other actions.
   - [Release please](#release-please)
   - [Docker build and push](#docker-build-and-push)
   - [Lint PR](#lint-pr)
+  - [Create deployment manifest from config](#create-deployment-manifest-from-config)
   - [Deploy to portainer](#deploy-to-portainer)
 - [Rust](#rust)
   - [Testing](#testing)
@@ -85,6 +86,32 @@ permissions:
 jobs:
   lint-pr:
     uses: majksa-actions/workflows/.github/workflows/lint-pr.yml@v1
+```
+
+### Create deployment manifest from config
+
+Example usage:
+
+```yml
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  create-manifest:
+    uses: majksa-actions/workflows/.github/workflows/create-deployment-manifest.yml@v1
+    strategy:
+      matrix:
+        environment: ["prod", "dev"]
+    with:
+      environment: ${{ matrix.environment }}
 ```
 
 ### Deploy to portainer
