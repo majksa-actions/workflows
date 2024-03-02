@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.1](https://github.com/majksa-actions/workflows/compare/v1.3.0...v1.3.1) (2024-03-02)
+
+
+### Bug Fixes
+
+* update actions ([e106c14](https://github.com/majksa-actions/workflows/commit/e106c14ecd507c8f50bbf1d4cf464d7acb845d34))
+
 ## [1.3.0](https://github.com/majksa-actions/workflows/compare/v1.2.0...v1.3.0) (2024-03-01)
 
 
