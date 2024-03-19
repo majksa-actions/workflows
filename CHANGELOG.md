@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.0](https://github.com/majksa-actions/workflows/compare/v1.5.0...v1.6.0) (2024-03-19)
+
+
+### Features
+
+* **docker:** add all platforms ([7569033](https://github.com/majksa-actions/workflows/commit/75690330843d5001709fdea533d052c5d4ebb703))
+
 ## [1.5.0](https://github.com/majksa-actions/workflows/compare/v1.4.0...v1.5.0) (2024-03-19)
 
 
