@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.1](https://github.com/majksa-actions/workflows/compare/v1.6.0...v1.6.1) (2024-03-19)
+
+
+### Bug Fixes
+
+* docker tags ([e7484e7](https://github.com/majksa-actions/workflows/commit/e7484e781203c2de196bd29972e13e5aca9c4f2b))
+
 ## [1.6.0](https://github.com/majksa-actions/workflows/compare/v1.5.0...v1.6.0) (2024-03-19)
 
 
