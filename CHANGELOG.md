@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.0](https://github.com/majksa-actions/workflows/compare/v1.4.0...v1.5.0) (2024-03-19)
+
+
+### Features
+
+* multi stage docker build ([ca90dc0](https://github.com/majksa-actions/workflows/commit/ca90dc019fa2464d82695c73313ba25be921192e))
+
 ## [1.4.0](https://github.com/majksa-actions/workflows/compare/v1.3.1...v1.4.0) (2024-03-02)
 
 
