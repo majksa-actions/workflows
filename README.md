@@ -207,7 +207,7 @@ on:
   pull_request:
 
 permissions:
-  contents: read
+  contents: write
   pull-requests: write
 
 jobs:
@@ -243,7 +243,7 @@ on:
   pull_request:
 
 permissions:
-  contents: read
+  contents: write
   pull-requests: write
 
 jobs:
