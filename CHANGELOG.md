@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.2](https://github.com/majksa-actions/workflows/compare/v1.8.1...v1.8.2) (2024-05-11)
+
+
+### Bug Fixes
+
+* **rust-docs:** upgraded to use environment files ([9ae0ecb](https://github.com/majksa-actions/workflows/commit/9ae0ecb0df16c7c2f838d8662da8f7d6677ae8d6))
+
 ## [1.8.1](https://github.com/majksa-actions/workflows/compare/v1.8.0...v1.8.1) (2024-05-11)
 
 
