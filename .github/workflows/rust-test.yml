@@ -102,3 +102,13 @@ jobs:
         uses: dtolnay/rust-toolchain@stable
       - name: Check code formatting
         run: cargo fmt --all --check
+  check-clippy:
+    name: Check code formatting
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+      - name: Check code using Clippy
+        run: cargo clippy --all --all-features -- -D warnings
