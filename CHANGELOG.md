@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.0](https://github.com/majksa-actions/workflows/compare/v1.6.1...v1.7.0) (2024-05-11)
+
+
+### Features
+
+* **release-please:** add config-file ([ba84c68](https://github.com/majksa-actions/workflows/commit/ba84c6822cc590424db62d94c6de83d3fc2715f1))
+
 ## [1.6.1](https://github.com/majksa-actions/workflows/compare/v1.6.0...v1.6.1) (2024-03-19)
 
 
