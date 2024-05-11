@@ -55,8 +55,10 @@ jobs:
         with:
           toolchain: ${{ matrix.rust-toolchain }}
           components: llvm-tools-preview
+      - name: Install nextest
+        run: curl -LsSf https://get.nexte.st/latest/linux | tar zxf - -C ${CARGO_HOME:-~/.cargo}/bin
       - name: Test
-        run: cargo test --all --features '${{ matrix.features }}'
+        run: cargo nextest run --all --features '${{ matrix.features }}'
         env:
           RUSTFLAGS: "-C instrument-coverage"
           LLVM_PROFILE_FILE: "report-%p-%m.profraw"
@@ -65,8 +67,6 @@ jobs:
         with:
           key: grcov
           path: ~/.cargo/bin/grcov
-      - name: Test
-        run: env
       - name: Name of coverage file (part 1)
         run: echo cov_id='${{ matrix.rust-toolchain }}' >> $GITHUB_ENV
       - name: Name of coverage file (part 2)
