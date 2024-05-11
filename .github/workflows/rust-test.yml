@@ -103,7 +103,7 @@ jobs:
       - name: Check code formatting
         run: cargo fmt --all --check
   check-clippy:
-    name: Check code formatting
+    name: Check code using Clippy
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
