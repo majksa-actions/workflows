@@ -26,7 +26,7 @@ jobs:
         run: cargo doc --no-deps
       - name: Get parent folder name
         id: folder
-        run: echo "::set-output name=folder::$(basename $(dirname ./target/doc/*/index.html))"
+        run: echo "folder=$(basename $(dirname ./target/doc/*/index.html))" >> $GITHUB_OUTPUT
       - name: Setup index page
         run: |
           echo "<meta http-equiv=\"refresh\" content=\"0; url=${{ steps.folder.outputs.folder }}\">" > target/doc/index.html
