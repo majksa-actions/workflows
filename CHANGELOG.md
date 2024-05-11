@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.9.1](https://github.com/majksa-actions/workflows/compare/v1.9.0...v1.9.1) (2024-05-11)
+
+
+### Bug Fixes
+
+* rename job ([eecb880](https://github.com/majksa-actions/workflows/commit/eecb8804a2610a639ae537820438adffdb9a3b20))
+
 ## [1.9.0](https://github.com/majksa-actions/workflows/compare/v1.8.2...v1.9.0) (2024-05-11)
 
 
