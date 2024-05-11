@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.0](https://github.com/majksa-actions/workflows/compare/v1.7.0...v1.8.0) (2024-05-11)
+
+
+### Features
+
+* **rust-docs:** publish docs to github pages ([0c6eb98](https://github.com/majksa-actions/workflows/commit/0c6eb98c3b5b00f1b867fe450b7513c24e3fb4a0))
+
 ## [1.7.0](https://github.com/majksa-actions/workflows/compare/v1.6.1...v1.7.0) (2024-05-11)
 
 
