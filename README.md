@@ -11,6 +11,7 @@ Stores reusable workflows that can be used from other actions.
 - [Rust](#rust)
   - [Testing](#testing)
   - [Publish to crates.io](#publish-to-cratesio)
+  - [Publish documentation to GitHub Pages](#publish-documentation-to-github-pages)
 - [TypeScript](#typescript)
   - [Publish GitHub Action](#publish-github-action)
   - [Vitest](#vitest)
@@ -176,6 +177,32 @@ jobs:
     uses: majksa-actions/workflows/.github/workflows/rust-publish.yml@v1
     secrets:
       CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
+```
+
+### Publish documentation to GitHub Pages
+
+Example usage:
+
+```yml
+name: Publish documentation
+
+on:
+  push:
+    tags:
+      - "**"
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  cargo:
+    uses: majksa-actions/workflows/.github/workflows/rust-docs.yml@v1
 ```
 
 ## TypeScript
