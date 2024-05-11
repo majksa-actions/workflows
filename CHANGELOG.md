@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.1](https://github.com/majksa-actions/workflows/compare/v1.8.0...v1.8.1) (2024-05-11)
+
+
+### Bug Fixes
+
+* **rust-docs:** deploy dependency ([333ff5d](https://github.com/majksa-actions/workflows/commit/333ff5d86268b4517b95f2c1bcc5804e7cb0a457))
+
 ## [1.8.0](https://github.com/majksa-actions/workflows/compare/v1.7.0...v1.8.0) (2024-05-11)
 
 
