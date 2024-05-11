@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.9.0](https://github.com/majksa-actions/workflows/compare/v1.8.2...v1.9.0) (2024-05-11)
+
+
+### Features
+
+* **rust-test:** add clippy check ([a1f2f30](https://github.com/majksa-actions/workflows/commit/a1f2f3082cea4c89ea1ab2c4f2bf916dbfa817e8))
+* **rust-test:** run tests using nextest ([2d7ec54](https://github.com/majksa-actions/workflows/commit/2d7ec5466a65ba6bb1067bd98c95f545b65fbd5c))
+
 ## [1.8.2](https://github.com/majksa-actions/workflows/compare/v1.8.1...v1.8.2) (2024-05-11)
 
 
