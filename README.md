@@ -4,6 +4,7 @@ Stores reusable workflows that can be used from other actions.
 
 - [General](#general)
   - [Release please](#release-please)
+  - [After release please (when using GitHub App)](#after-release-please-when-using-github-app)
   - [Docker build and push](#docker-build-and-push)
   - [Lint PR](#lint-pr)
   - [Create deployment manifest from config](#create-deployment-manifest-from-config)
@@ -44,6 +45,26 @@ jobs:
       RELEASE_PLEASE_TOKEN: ${{ secrets.RELEASE_PLEASE_TOKEN }}
     with:
       release-type: "simple"
+```
+
+### After release please (when using GitHub App)
+
+Example usage:
+
+```yml
+name: Release Please
+
+on:
+  release:
+    types:
+      - created
+
+permissions:
+  contents: write
+
+jobs:
+  release-please:
+    uses: majksa-actions/workflows/.github/workflows/after-release-please.yml@v1
 ```
 
 ### Docker build and push
