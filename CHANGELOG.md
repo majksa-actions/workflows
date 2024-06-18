@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.10.0](https://github.com/majksa-actions/workflows/compare/v1.9.1...v1.10.0) (2024-06-18)
+
+
+### Features
+
+* add after release please version tagger ([da2a2d5](https://github.com/majksa-actions/workflows/commit/da2a2d58eadca96691a93598514ef2967d2ef6d1))
+* use cargo with cache ([5423edd](https://github.com/majksa-actions/workflows/commit/5423edd56e94dc14c72294e752eae46d4a4bb364))
+
+
+### Bug Fixes
+
+* change status checks ([635ddea](https://github.com/majksa-actions/workflows/commit/635ddeaabee1724fa00406ac8444abdc0c913694))
+* **deps:** bump actions/checkout from 2 to 4 ([e32585a](https://github.com/majksa-actions/workflows/commit/e32585a2c745ef0a50c8840d6ab2a9fe55750748))
+* **deps:** bump docker/build-push-action from 5 to 6 ([66f469e](https://github.com/majksa-actions/workflows/commit/66f469ebc0798a775122cee8c9b1008ce6dd67e8))
+* **deps:** bump peter-evans/create-pull-request from 5 to 6 ([4b66c25](https://github.com/majksa-actions/workflows/commit/4b66c259a441939061aa8495198c8f1636791fb0))
+
 ## [1.9.1](https://github.com/majksa-actions/workflows/compare/v1.9.0...v1.9.1) (2024-05-11)
 
 
