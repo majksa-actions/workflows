@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.10.2](https://github.com/majksa-actions/workflows/compare/v1.10.1...v1.10.2) (2024-06-21)
+
+
+### Bug Fixes
+
+* after release please regex to match version with a slash ([9a54457](https://github.com/majksa-actions/workflows/commit/9a54457759fcecc2875f25be840269296a439f0c))
+
 ## [1.10.1](https://github.com/majksa-actions/workflows/compare/v1.10.0...v1.10.1) (2024-06-21)
 
 
