@@ -29,6 +29,7 @@ jobs:
           [
             "${{ needs.parse-semver.outputs.major }}",
             "${{ needs.parse-semver.outputs.major }}.${{ needs.parse-semver.outputs.minor }}",
+            "${{ needs.parse-semver.outputs.major }}.${{ needs.parse-semver.outputs.minor }}.${{ needs.parse-semver.outputs.patch }}",
             "v${{ needs.parse-semver.outputs.major }}",
             "v${{ needs.parse-semver.outputs.major }}.${{ needs.parse-semver.outputs.minor }}",
           ]
