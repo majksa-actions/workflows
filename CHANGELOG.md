@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.10.4](https://github.com/majksa-actions/workflows/compare/v1.10.3...v1.10.4) (2024-06-21)
+
+
+### Bug Fixes
+
+* also tag full version without v prefix ([093ae0f](https://github.com/majksa-actions/workflows/commit/093ae0f3ca1a17cbcdce3fbbbe794f8aaf61b924))
+
 ## [1.10.3](https://github.com/majksa-actions/workflows/compare/v1.10.2...v1.10.3) (2024-06-21)
 
 
