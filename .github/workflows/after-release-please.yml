@@ -16,7 +16,7 @@ jobs:
         uses: booxmedialtd/ws-action-parse-semver@v1
         with:
           input_string: ${{ github.event.release.name }}
-          version_extractor_regex: '\/v(.*)$'
+          version_extractor_regex: "^v(.*)$"
       - name: tag major and minor versions
         run: |
           git config user.name github-actions[bot]
