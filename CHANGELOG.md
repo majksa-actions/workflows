@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.10.1](https://github.com/majksa-actions/workflows/compare/v1.10.0...v1.10.1) (2024-06-21)
+
+
+### Bug Fixes
+
+* remove requirement for PR reviews ([6f40d5d](https://github.com/majksa-actions/workflows/commit/6f40d5dd87ef690e7cb28c1ceef083ab2899b293))
+* remove settings file ([#23](https://github.com/majksa-actions/workflows/issues/23)) ([b77fe1e](https://github.com/majksa-actions/workflows/commit/b77fe1e32dfc0ae33a18a7f42c0285f1fca91ad0))
+* try setting restrictions ([8d5361f](https://github.com/majksa-actions/workflows/commit/8d5361f754b28896300a6ccc5cb573ead56788ed))
+
 ## [1.10.0](https://github.com/majksa-actions/workflows/compare/v1.9.1...v1.10.0) (2024-06-18)
 
 
