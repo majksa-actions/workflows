@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.10.7](https://github.com/majksa-actions/workflows/compare/v1.10.6...v1.10.7) (2024-06-28)
+
+
+### Bug Fixes
+
+* **rust-test:** add checkout for getting cargo.toml and cargo.lock hashes ([0424a64](https://github.com/majksa-actions/workflows/commit/0424a647338d3aea7dbc5b0fc77662a37dfe5caf))
+
 ## [1.10.6](https://github.com/majksa-actions/workflows/compare/v1.10.5...v1.10.6) (2024-06-28)
 
 
