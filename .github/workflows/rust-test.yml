@@ -38,8 +38,52 @@ jobs:
       - name: Build
         if: ${{ steps.cache.outputs.cache-hit != 'true' }}
         run: cargo install grcov
+  build-nextest:
+    name: "Build nextest"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cache
+        id: cache
+        uses: actions/cache@v4
+        with:
+          key: nextest
+          path: ~/.cargo/bin/cargo-nextest
+      - name: Install Rust toolchain
+        if: ${{ steps.cache.outputs.cache-hit != 'true' }}
+        uses: dtolnay/rust-toolchain@stable
+      - name: Build
+        if: ${{ steps.cache.outputs.cache-hit != 'true' }}
+        run: curl -LsSf https://get.nexte.st/latest/linux | tar zxf - -C ${CARGO_HOME:-~/.cargo}/bin
+  build-app:
+    name: "Test Build app ${{ matrix.rust-toolchain }}"
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        rust-toolchain: ${{ fromJson(inputs.toolchain) }}
+    steps:
+      - name: Cache
+        id: cache
+        uses: actions/cache@v4
+        with:
+          key: build-cargo-deps-${{ matrix.rust-toolchain }}-${{ hashFiles('Cargo.toml') }}-${{ hashFiles('Cargo.lock') }}
+          path: target
+          restore-keys: |
+            build-cargo-deps-${{ matrix.rust-toolchain }}-
+            build-cargo-deps-
+      - name: Install Rust toolchain
+        if: ${{ steps.cache.outputs.cache-hit != 'true' }}
+        uses: dtolnay/rust-toolchain@v1
+        with:
+          toolchain: ${{ matrix.rust-toolchain }}
+          components: llvm-tools-preview
+      - name: Build
+        if: ${{ steps.cache.outputs.cache-hit != 'true' }}
+        run: cargo build
   test:
-    needs: build-grcov
+    needs:
+      - build-grcov
+      - build-nextest
+      - build-app
     name: "Test Rust ${{ matrix.rust-toolchain }}, features ${{ matrix.features }}"
     runs-on: ubuntu-latest
     strategy:
@@ -53,28 +97,18 @@ jobs:
         with:
           toolchain: ${{ matrix.rust-toolchain }}
           components: llvm-tools-preview
-      - name: Enable Cargo cache
-        uses: Swatinem/rust-cache@v2
-      - name: Install nextest
-        run: curl -LsSf https://get.nexte.st/latest/linux | tar zxf - -C ${CARGO_HOME:-~/.cargo}/bin
+      - name: Get cached nextest
+        uses: actions/cache@v4
+        with:
+          key: nextest
+          path: ~/.cargo/bin/cargo-nextest
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Cache cargo dependencies
-        id: cache-cargo
-        uses: actions/cache@v3
-        env:
-          cache-name: cache-cargo-dependencies
+      - name: Get cached dependencies
+        uses: actions/cache@v4
         with:
+          key: build-cargo-deps-${{ matrix.rust-toolchain }}-${{ hashFiles('Cargo.toml') }}-${{ hashFiles('Cargo.lock') }}
           path: target
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('Cargo.toml') }}-${{ hashFiles('Cargo.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
-      - if: ${{ steps.cache-cargo.outputs.cache-hit != 'true' }}
-        name: List the state of node modules
-        continue-on-error: true
-        run: npm list
       - name: Test
         run: cargo nextest run --all --features '${{ matrix.features }}'
         env:
