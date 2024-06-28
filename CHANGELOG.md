@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.10.5](https://github.com/majksa-actions/workflows/compare/v1.10.4...v1.10.5) (2024-06-28)
+
+
+### Bug Fixes
+
+* cache rust dependencies ([55cb2b8](https://github.com/majksa-actions/workflows/commit/55cb2b8e44bcae13a4214073457622fe936a1d04))
+* setup docker cache ([73de554](https://github.com/majksa-actions/workflows/commit/73de55419715275fff68719bb336ee4adab19df1))
+
 ## [1.10.4](https://github.com/majksa-actions/workflows/compare/v1.10.3...v1.10.4) (2024-06-21)
 
 
