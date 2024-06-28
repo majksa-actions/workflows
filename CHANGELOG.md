@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.10.6](https://github.com/majksa-actions/workflows/compare/v1.10.5...v1.10.6) (2024-06-28)
+
+
+### Bug Fixes
+
+* **deps:** bump oven-sh/setup-bun from 1 to 2 ([5eb8af9](https://github.com/majksa-actions/workflows/commit/5eb8af9e343270b86aa1d6c4981c01d580049617))
+* **rust-test:** cache dependencies depending on each toolchain ([9232f96](https://github.com/majksa-actions/workflows/commit/9232f96a6fe432c778a55023666b7686d8d2fbca))
+
 ## [1.10.5](https://github.com/majksa-actions/workflows/compare/v1.10.4...v1.10.5) (2024-06-28)
 
 
