@@ -61,6 +61,8 @@ jobs:
       matrix:
         rust-toolchain: ${{ fromJson(inputs.toolchain) }}
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
       - name: Cache
         id: cache
         uses: actions/cache@v4
