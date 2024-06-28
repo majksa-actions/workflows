@@ -54,38 +54,10 @@ jobs:
       - name: Build
         if: ${{ steps.cache.outputs.cache-hit != 'true' }}
         run: curl -LsSf https://get.nexte.st/latest/linux | tar zxf - -C ${CARGO_HOME:-~/.cargo}/bin
-  build-app:
-    name: "Test Build app ${{ matrix.rust-toolchain }}"
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        rust-toolchain: ${{ fromJson(inputs.toolchain) }}
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Cache
-        id: cache
-        uses: actions/cache@v4
-        with:
-          key: build-cargo-deps-${{ matrix.rust-toolchain }}-${{ hashFiles('Cargo.toml') }}-${{ hashFiles('Cargo.lock') }}
-          path: target
-          restore-keys: |
-            build-cargo-deps-${{ matrix.rust-toolchain }}-
-            build-cargo-deps-
-      - name: Install Rust toolchain
-        if: ${{ steps.cache.outputs.cache-hit != 'true' }}
-        uses: dtolnay/rust-toolchain@v1
-        with:
-          toolchain: ${{ matrix.rust-toolchain }}
-          components: llvm-tools-preview
-      - name: Build
-        if: ${{ steps.cache.outputs.cache-hit != 'true' }}
-        run: cargo build
   test:
     needs:
       - build-grcov
       - build-nextest
-      - build-app
     name: "Test Rust ${{ matrix.rust-toolchain }}, features ${{ matrix.features }}"
     runs-on: ubuntu-latest
     strategy:
@@ -106,11 +78,15 @@ jobs:
           path: ~/.cargo/bin/cargo-nextest
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Get cached dependencies
+      - name: Cache dependencies
         uses: actions/cache@v4
         with:
-          key: build-cargo-deps-${{ matrix.rust-toolchain }}-${{ hashFiles('Cargo.toml') }}-${{ hashFiles('Cargo.lock') }}
+          key: build-cargo-deps-${{ matrix.rust-toolchain }}-${{ matrix.features }}-${{ hashFiles('Cargo.toml') }}-${{ hashFiles('Cargo.lock') }}
           path: target
+          restore-keys: |
+            build-cargo-deps-${{ matrix.rust-toolchain }}-${{ matrix.features }}-
+            build-cargo-deps-${{ matrix.rust-toolchain }}-
+            build-cargo-deps-
       - name: Test
         run: cargo nextest run --all --features '${{ matrix.features }}'
         env:
