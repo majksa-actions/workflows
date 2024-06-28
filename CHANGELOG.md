@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.10.8](https://github.com/majksa-actions/workflows/compare/v1.10.7...v1.10.8) (2024-06-28)
+
+
+### Bug Fixes
+
+* **rust-test:** cache cargo test, not cargo build ([bc57873](https://github.com/majksa-actions/workflows/commit/bc578733ca88c63be9c5df545b38289f8823055b))
+
 ## [1.10.7](https://github.com/majksa-actions/workflows/compare/v1.10.6...v1.10.7) (2024-06-28)
 
 
