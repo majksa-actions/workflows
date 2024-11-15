@@ -115,7 +115,7 @@ jobs:
           name: coverage-${{ steps.coverage-name.outputs.cov_id }}
           path: target/coverage
       - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@v4
+        uses: codecov/codecov-action@v5
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
         if: ${{ env.CODECOV_TOKEN != '' }}
